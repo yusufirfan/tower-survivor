@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bxp447h1pl74q"]
+[gd_scene load_steps=25 format=3 uid="uid://bxp447h1pl74q"]
 
 [ext_resource type="Texture2D" uid="uid://2ovo0ug2uav7" path="res://assets/White-Light-Transparent.png" id="1_khbcb"]
 [ext_resource type="Texture2D" uid="uid://b7mcxinvbayhw" path="res://assets/objects/Tilemap_Elevation.png" id="1_nndmh"]
@@ -14,12 +14,13 @@
 [ext_resource type="Texture2D" uid="uid://ppuu6pveq7ex" path="res://assets/deco/12.png" id="12_uuah0"]
 [ext_resource type="Texture2D" uid="uid://dadysqxcw6kej" path="res://assets/deco/05.png" id="13_tlm7u"]
 [ext_resource type="Texture2D" uid="uid://c10iv1rnfy7rx" path="res://assets/deco/04.png" id="14_hd2o2"]
-[ext_resource type="Script" path="res://scripts/Tower.gd" id="15_tkv42"]
-[ext_resource type="Texture2D" uid="uid://deo7l01wd5bro" path="res://assets/Tower_Red.png" id="17_u36g4"]
 [ext_resource type="Script" path="res://scripts/Spawner.gd" id="17_ys281"]
 [ext_resource type="Texture2D" uid="uid://bpldvd3rmbgve" path="res://assets/ui/healthbar/healthbarUnder.png" id="18_x1usu"]
+[ext_resource type="FontFile" uid="uid://c5451snbtcult" path="res://assets/fonts/NESCyrillic.ttf" id="19_26lr3"]
 [ext_resource type="Texture2D" uid="uid://h4x870vd0fs3" path="res://assets/ui/healthbar/healthbarProgress.png" id="19_m4jxn"]
+[ext_resource type="PackedScene" uid="uid://bjhaedklfnskv" path="res://scenes/tower.tscn" id="20_7ojhf"]
 [ext_resource type="Script" path="res://scripts/TowerHealthBar.gd" id="20_qsfc1"]
+[ext_resource type="Script" path="res://GoldLabel.gd" id="20_t47ew"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_owm0f"]
 texture = ExtResource("1_nndmh")
@@ -95,13 +96,6 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_owm0f")
 sources/1 = SubResource("TileSetAtlasSource_wfn22")
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_umlvi"]
-radius = 37.0
-height = 100.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_gapuw"]
-radius = 176.669
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
@@ -259,41 +253,6 @@ texture = ExtResource("14_hd2o2")
 position = Vector2(358, 217)
 texture = ExtResource("13_tlm7u")
 
-[node name="Tower" type="StaticBody2D" parent="."]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(639, 362)
-collision_layer = 2
-script = ExtResource("15_tkv42")
-
-[node name="Tower" type="Sprite2D" parent="Tower"]
-z_index = 1
-position = Vector2(-2, -29)
-texture = ExtResource("17_u36g4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tower"]
-z_index = 2
-y_sort_enabled = true
-position = Vector2(0, -20)
-scale = Vector2(0.5, 0.5)
-shape = SubResource("CapsuleShape2D_umlvi")
-
-[node name="Area2D" type="Area2D" parent="Tower"]
-position = Vector2(0, -20)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tower/Area2D"]
-position = Vector2(-1, 38)
-scale = Vector2(1.5, 1)
-shape = SubResource("CircleShape2D_gapuw")
-
-[node name="Timer" type="Timer" parent="Tower"]
-wait_time = 0.5
-
-[node name="Timer2" type="Timer" parent="Tower"]
-wait_time = 2.0
-
 [node name="Spawner" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("17_ys281")
@@ -323,7 +282,31 @@ texture_progress = ExtResource("19_m4jxn")
 script = ExtResource("20_qsfc1")
 tower = NodePath("../../Tower")
 
-[connection signal="body_entered" from="Tower/Area2D" to="Tower" method="_on_area_2d_body_entered"]
-[connection signal="timeout" from="Tower/Timer" to="Tower" method="_on_timer_timeout"]
-[connection signal="timeout" from="Tower/Timer2" to="Tower" method="_on_timer_2_timeout"]
+[node name="Control" type="Control" parent="GUI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GoldLabel" type="RichTextLabel" parent="GUI/Control"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 200.0
+offset_bottom = 84.0
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/normal_font = ExtResource("19_26lr3")
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "[img]res://assets/ui/coin.png[/img] 0"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+script = ExtResource("20_t47ew")
+
+[node name="Tower" parent="." instance=ExtResource("20_7ojhf")]
+position = Vector2(653, 337)
+collision_layer = 2
+collision_mask = 2
+
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]

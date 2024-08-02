@@ -6,13 +6,16 @@ extends CharacterBody2D
 @export var attack_range_x = 50
 @export var attack_range_y = 65
 @export var tolerance = 10
+@export var prize = 10
 
 var can_attack = true
 
 var current_health = health
 var tower
+var enemy
 
 func _ready():
+	enemy = Enemy.new()
 	tower = get_node("/root/Main/Tower")
 	set_health_text()
 
@@ -39,8 +42,9 @@ func take_damage(damage):
 	
 	set_health_text()
 	
-	if current_health == 0:
+	if current_health <= 0:
 		get_parent().get_parent().get_node("Tower").pop_list()
+		enemy.add_gold(prize)
 		queue_free()
 		
 func set_health_text():

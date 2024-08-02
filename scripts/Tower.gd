@@ -1,7 +1,8 @@
 class_name Tower
 extends StaticBody2D
 
-@export var health = 1000
+var state = State.new()
+var health = state.tower_health
 
 var arrow = preload("res://scenes/arrow.tscn")
 
@@ -22,7 +23,6 @@ func _process(delta):
 
 func check_health(strength):
 	health -= strength
-	print(health)
 	healthChanged.emit()
 	if health <= 0:
 		queue_free()
@@ -67,6 +67,7 @@ func pop_list():
 		isdone = true
 		dead_enemy = 0
 		# Call new_wave function from the Spawner node
+		await get_tree().create_timer(0.5).timeout
 		get_parent().get_node("Spawner").new_wave()
 
 #Gets enemy_count data from Spawner.gd
@@ -76,3 +77,6 @@ func send_enemy_count(dd):
 #Gets current_wave from Spawner.gd
 func send_current_wave(dd):
 	current_wave = dd
+
+func _on_timer_2_timeout():
+	pass # Replace with function body.

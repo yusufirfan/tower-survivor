@@ -129,7 +129,6 @@ script = ExtResource("1_pkisi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 visibility_layer = 2
-position = Vector2(2, -7)
 sprite_frames = SubResource("SpriteFrames_0xsar")
 animation = &"run"
 autoplay = "run"
@@ -138,11 +137,12 @@ autoplay = "run"
 shape = SubResource("CircleShape2D_e1l55")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = -36.0
-offset_top = -52.0
-offset_right = 24.0
-offset_bottom = -40.0
+offset_left = -30.0
+offset_top = -37.0
+offset_right = 30.0
+offset_bottom = -25.0
 scale = Vector2(1.2, 1.2)
+pivot_offset = Vector2(30, 40)
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 1
 theme_override_styles/background = SubResource("StyleBoxFlat_hrdle")

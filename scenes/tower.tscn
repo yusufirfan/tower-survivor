@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjhaedklfnskv"]
+
+[ext_resource type="Script" path="res://scripts/Tower.gd" id="1_hks4t"]
+[ext_resource type="Texture2D" uid="uid://deo7l01wd5bro" path="res://assets/Tower_Red.png" id="1_x4rk4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3dfxp"]
+radius = 37.0
+height = 100.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aeij5"]
+radius = 214.669
+
+[node name="Tower" type="StaticBody2D"]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_hks4t")
+
+[node name="Tower" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(0, 27)
+texture = ExtResource("1_x4rk4")
+offset = Vector2(0, -35)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 2
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CapsuleShape2D_3dfxp")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1, 0)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 38)
+scale = Vector2(1.5, 1)
+shape = SubResource("CircleShape2D_aeij5")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

@@ -21,5 +21,5 @@ func _physics_process(delta):
 
 func _on_body_entered(body):
 	if body.has_method("take_damage"):
-		queue_free()
 		body.take_damage(damage)
+		queue_free()
