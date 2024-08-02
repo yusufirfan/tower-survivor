@@ -1,0 +1,176 @@
+[gd_scene load_steps=20 format=3 uid="uid://ehutaeqydr4g"]
+
+[ext_resource type="Texture2D" uid="uid://dmobcqn43lluq" path="res://assets/enemies/Enemy1.png" id="1_2ok2o"]
+[ext_resource type="Script" path="res://scripts/enemy_1.gd" id="1_pkisi"]
+[ext_resource type="FontFile" uid="uid://c5451snbtcult" path="res://assets/fonts/NESCyrillic.ttf" id="3_qsr32"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpufd"]
+atlas = ExtResource("1_2ok2o")
+region = Rect2(0, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2q6ws"]
+atlas = ExtResource("1_2ok2o")
+region = Rect2(192, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shlqt"]
+atlas = ExtResource("1_2ok2o")
+region = Rect2(384, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4trge"]
+atlas = ExtResource("1_2ok2o")
+region = Rect2(576, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhw0y"]
+atlas = ExtResource("1_2ok2o")
+region = Rect2(768, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ndn8"]
+atlas = ExtResource("1_2ok2o")
+region = Rect2(960, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqr8e"]
+atlas = ExtResource("1_2ok2o")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uv5al"]
+atlas = ExtResource("1_2ok2o")
+region = Rect2(192, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56pe6"]
+atlas = ExtResource("1_2ok2o")
+region = Rect2(384, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ugmv"]
+atlas = ExtResource("1_2ok2o")
+region = Rect2(576, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrqxy"]
+atlas = ExtResource("1_2ok2o")
+region = Rect2(768, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6yp0"]
+atlas = ExtResource("1_2ok2o")
+region = Rect2(960, 192, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0xsar"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpufd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2q6ws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shlqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4trge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhw0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ndn8")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pqr8e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uv5al")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56pe6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ugmv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nrqxy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6yp0")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e1l55"]
+radius = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hrdle"]
+bg_color = Color(0.855374, 0.14805, 0.0724229, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_detail = 1
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rfnqj"]
+bg_color = Color(0.364706, 1, 0.0588235, 1)
+
+[node name="Enemy1" type="CharacterBody2D"]
+z_index = 2
+y_sort_enabled = true
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_pkisi")
+health = null
+strength = null
+speed = null
+attack_range_x = null
+attack_range_y = null
+tolerance = null
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visibility_layer = 2
+position = Vector2(2, -7)
+sprite_frames = SubResource("SpriteFrames_0xsar")
+animation = &"run"
+autoplay = "run"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_e1l55")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -36.0
+offset_top = -52.0
+offset_right = 24.0
+offset_bottom = -40.0
+scale = Vector2(1.2, 1.2)
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_hrdle")
+theme_override_styles/fill = SubResource("StyleBoxFlat_rfnqj")
+value = 10.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="ProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 7.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+theme_override_fonts/font = ExtResource("3_qsr32")
+theme_override_font_sizes/font_size = 15
+text = "10/100"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
