@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://deo7l01wd5bro"
-path="res://.godot/imported/Tower_Red.png-b616b025a61ac73d7586619c67c3f5ad.ctex"
+uid="uid://2ovo0ug2uav7"
+path="res://.godot/imported/White-Light-Transparent.png-3a0e739b4e8a4a0c19aaf573dbb6feb0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tower_Red.png"
-dest_files=["res://.godot/imported/Tower_Red.png-b616b025a61ac73d7586619c67c3f5ad.ctex"]
+source_file="res://assets/White-Light-Transparent.png"
+dest_files=["res://.godot/imported/White-Light-Transparent.png-3a0e739b4e8a4a0c19aaf573dbb6feb0.ctex"]
 
 [params]
 

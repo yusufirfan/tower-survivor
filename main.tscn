@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://bxp447h1pl74q"]
 
-[ext_resource type="Texture2D" uid="uid://2ovo0ug2uav7" path="res://White-Light-Transparent.png" id="1_khbcb"]
+[ext_resource type="Texture2D" uid="uid://2ovo0ug2uav7" path="res://assets/White-Light-Transparent.png" id="1_khbcb"]
 [ext_resource type="Texture2D" uid="uid://b7mcxinvbayhw" path="res://assets/objects/Tilemap_Elevation.png" id="1_nndmh"]
 [ext_resource type="Texture2D" uid="uid://ixsqxd2vamno" path="res://assets/objects/Tilemap_Flat.png" id="2_rotw3"]
 [ext_resource type="PackedScene" uid="uid://bx4hos4v32f4h" path="res://scenes/tree_1.tscn" id="3_uw7uo"]
@@ -15,11 +15,11 @@
 [ext_resource type="Texture2D" uid="uid://dadysqxcw6kej" path="res://assets/deco/05.png" id="13_tlm7u"]
 [ext_resource type="Texture2D" uid="uid://c10iv1rnfy7rx" path="res://assets/deco/04.png" id="14_hd2o2"]
 [ext_resource type="Script" path="res://scripts/Tower.gd" id="15_tkv42"]
-[ext_resource type="Texture2D" uid="uid://deo7l01wd5bro" path="res://Tower_Red.png" id="17_u36g4"]
+[ext_resource type="Texture2D" uid="uid://deo7l01wd5bro" path="res://assets/Tower_Red.png" id="17_u36g4"]
 [ext_resource type="Script" path="res://scripts/Spawner.gd" id="17_ys281"]
 [ext_resource type="Texture2D" uid="uid://bpldvd3rmbgve" path="res://assets/ui/healthbar/healthbarUnder.png" id="18_x1usu"]
 [ext_resource type="Texture2D" uid="uid://h4x870vd0fs3" path="res://assets/ui/healthbar/healthbarProgress.png" id="19_m4jxn"]
-[ext_resource type="Script" path="res://TowerHealthBar.gd" id="20_qsfc1"]
+[ext_resource type="Script" path="res://scripts/TowerHealthBar.gd" id="20_qsfc1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_owm0f"]
 texture = ExtResource("1_nndmh")
