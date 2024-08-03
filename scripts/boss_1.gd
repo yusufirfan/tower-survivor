@@ -1,12 +1,14 @@
 extends CharacterBody2D
 
-@export var health = 1000
-@export var strength = 50
-@export var speed = 70
-@export var attack_range_x = 50
-@export var attack_range_y = 65
-@export var tolerance = 10
-@export var prize = 50
+var NAME = "boss_1"
+
+var health = GlobalState.enemies[NAME]['health']
+var strength = GlobalState.enemies[NAME]['strength']
+var speed = GlobalState.enemies[NAME]['speed']
+var attack_range_x = GlobalState.enemies[NAME]['attack_range_x']
+var attack_range_y = GlobalState.enemies[NAME]['attack_range_y']
+var tolerance = GlobalState.enemies[NAME]['tolerance']
+var prize = GlobalState.enemies[NAME]['prize']
 
 var can_attack = true
 
@@ -39,11 +41,10 @@ func move_to_tower(delta):
 			
 func take_damage(damage):
 	current_health -= damage
-	
 	set_health_text()
 	
 	if current_health <= 0:
-		get_parent().get_parent().get_node("Tower").pop_list()
+		tower.pop_list()
 		enemy.add_gold(prize)
 		queue_free()
 		

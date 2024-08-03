@@ -1,12 +1,14 @@
 extends CharacterBody2D
 
-@export var health = 250
-@export var strength = 20
-@export var speed = 70
-@export var attack_range_x = 50
-@export var attack_range_y = 65
-@export var tolerance = 10
-@export var prize = 10
+var NAME = "enemy_2"
+
+var health = GlobalState.enemies[NAME]['health']
+var strength = GlobalState.enemies[NAME]['strength']
+var speed = GlobalState.enemies[NAME]['speed']
+var attack_range_x = GlobalState.enemies[NAME]['attack_range_x']
+var attack_range_y = GlobalState.enemies[NAME]['attack_range_y']
+var tolerance = GlobalState.enemies[NAME]['tolerance']
+var prize = GlobalState.enemies[NAME]['prize']
 
 var can_attack = true
 

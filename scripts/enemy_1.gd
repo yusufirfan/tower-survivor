@@ -1,22 +1,23 @@
 extends CharacterBody2D
 
-@export var health = 100
-@export var strength = 10
-@export var speed = 50
-@export var attack_range_x = 50
-@export var attack_range_y = 65
-@export var tolerance = 10
-@export var prize = 5
+var NAME = "enemy_1"
+
+var health = GlobalState.enemies[NAME]['health']
+var strength = GlobalState.enemies[NAME]['strength']
+var speed = GlobalState.enemies[NAME]['speed']
+var attack_range_x = GlobalState.enemies[NAME]['attack_range_x']
+var attack_range_y = GlobalState.enemies[NAME]['attack_range_y']
+var tolerance = GlobalState.enemies[NAME]['tolerance']
+var prize = GlobalState.enemies[NAME]['prize']
 
 var can_attack = true
 
 var current_health = health
-var tower
+var tower = GlobalState.tower
 var enemy
 
 func _ready():
 	enemy = Enemy.new()
-	tower = get_node("/root/Main/Tower")
 	set_health_text()
 
 func _process(delta):

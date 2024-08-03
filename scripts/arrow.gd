@@ -1,25 +1,21 @@
 extends Area2D
 
+var NAME = "arrow"
+
+var DAMAGE = GlobalState.weapons[NAME]['damage']
+var SPEED = GlobalState.weapons[NAME]['speed']
+var REACH = GlobalState.weapons[NAME]['reach']
 var traveled_distance = 0
-@export var damage = 25
-@export var speed = 300
-
-var tower
-var reach
-
-func _ready():
-	tower = get_node("/root/Main/Tower")
-	reach = tower.get_node("CollisionShape2D").shape.radius * 30
 
 func _physics_process(delta):
 	var direction = Vector2.RIGHT.rotated(rotation)
-	position += direction * speed * delta
+	position += direction * SPEED * delta
 	traveled_distance += 1000 * delta
 	
-	if traveled_distance > reach:
+	if traveled_distance > REACH:
 		queue_free()
 
 func _on_body_entered(body):
 	if body.has_method("take_damage"):
-		body.take_damage(damage)
+		body.take_damage(DAMAGE)
 		queue_free()

@@ -8,7 +8,7 @@ radius = 37.0
 height = 100.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aeij5"]
-radius = 214.669
+radius = 165.409
 
 [node name="Tower" type="StaticBody2D"]
 z_index = 1
@@ -33,7 +33,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-1, 38)
-scale = Vector2(1.5, 1)
+scale = Vector2(1.688, 0.9)
 shape = SubResource("CircleShape2D_aeij5")
 
 [node name="Timer" type="Timer" parent="."]
