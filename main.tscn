@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bxp447h1pl74q"]
+[gd_scene load_steps=28 format=3 uid="uid://bxp447h1pl74q"]
 
 [ext_resource type="Texture2D" uid="uid://2ovo0ug2uav7" path="res://assets/White-Light-Transparent.png" id="1_khbcb"]
 [ext_resource type="Texture2D" uid="uid://b7mcxinvbayhw" path="res://assets/objects/Tilemap_Elevation.png" id="1_nndmh"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://bjhaedklfnskv" path="res://scenes/tower.tscn" id="20_7ojhf"]
 [ext_resource type="Script" path="res://scripts/TowerHealthBar.gd" id="20_qsfc1"]
 [ext_resource type="Script" path="res://GoldLabel.gd" id="20_t47ew"]
+[ext_resource type="Script" path="res://scripts/Upgrades.gd" id="21_3pp3v"]
 [ext_resource type="Texture2D" uid="uid://bgtv3n6k8ogth" path="res://assets/ui/9-slice01.png" id="21_6orfn"]
 [ext_resource type="Theme" uid="uid://cm14jfl6doc0" path="res://assets/ui/button.tres" id="22_4x3y6"]
 
@@ -344,15 +345,93 @@ offset_bottom = -21.0
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(1.2, 1.2)
+script = ExtResource("21_3pp3v")
 metadata/_edit_use_anchors_ = true
 
-[node name="NinePatchRect" type="NinePatchRect" parent="GUI/Control/Upgrades"]
-modulate = Color(1, 1, 1, 0.670588)
+[node name="InfoContainer" type="Control" parent="GUI/Control/Upgrades"]
+anchors_preset = 0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 273.0
+offset_bottom = 129.0
+
+[node name="InfoTitle" type="RichTextLabel" parent="GUI/Control/Upgrades/InfoContainer"]
+z_index = 1
+layout_mode = 0
+offset_right = 355.0
+offset_bottom = 64.0
+scale = Vector2(0.75, 0.75)
+theme_override_fonts/normal_font = ExtResource("19_26lr3")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[img]res://assets/projectiles/arrow.png[/img]  [NEW] ARROW "
+fit_content = true
+
+[node name="InfoTitle2" type="RichTextLabel" parent="GUI/Control/Upgrades/InfoContainer"]
+z_index = 1
+layout_mode = 0
+offset_top = 69.1667
+offset_right = 353.0
+offset_bottom = 107.167
+scale = Vector2(0.75, 0.75)
+theme_override_fonts/normal_font = ExtResource("19_26lr3")
+theme_override_font_sizes/normal_font_size = 17
+bbcode_enabled = true
+text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+scroll_active = false
+
+[node name="InfoTitle3" type="RichTextLabel" parent="GUI/Control/Upgrades/InfoContainer"]
+z_index = 1
+layout_mode = 0
+offset_top = 99.0
+offset_right = 657.0
+offset_bottom = 163.0
+scale = Vector2(0.4, 0.4)
+theme_override_fonts/normal_font = ExtResource("19_26lr3")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "[img]res://assets/ui/coin.png[/img] COST: 100 GOLD"
+fit_content = true
+scroll_active = false
+
+[node name="InfoFirst" type="RichTextLabel" parent="GUI/Control/Upgrades/InfoContainer"]
+z_index = 1
+layout_mode = 0
+offset_top = 50.0
+offset_right = 167.0
+offset_bottom = 73.0
+scale = Vector2(0.75, 0.75)
+theme_override_fonts/normal_font = ExtResource("19_26lr3")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "DAMAGE: 100"
+fit_content = true
+
+[node name="InfoSecond" type="RichTextLabel" parent="GUI/Control/Upgrades/InfoContainer"]
+z_index = 1
+layout_mode = 0
+offset_left = 130.0
+offset_top = 50.0
+offset_right = 300.0
+offset_bottom = 73.0
+scale = Vector2(0.75, 0.75)
+theme_override_fonts/normal_font = ExtResource("19_26lr3")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "DAMAGE: 100"
+fit_content = true
+
+[node name="InfoBackground" type="NinePatchRect" parent="GUI/Control/Upgrades/InfoContainer"]
+modulate = Color(1, 1, 1, 0.513726)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 135.0
+offset_left = -8.0
+offset_top = -6.00003
+offset_right = -8.0
+offset_bottom = 129.0
 grow_horizontal = 2
+scale = Vector2(1.055, 1)
 texture = ExtResource("21_6orfn")
 region_rect = Rect2(0, 0, 48, 48)
 patch_margin_left = 11
