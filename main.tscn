@@ -358,8 +358,10 @@ offset_bottom = 129.0
 [node name="InfoTitle" type="RichTextLabel" parent="GUI/Control/Upgrades/InfoContainer"]
 z_index = 1
 layout_mode = 0
-offset_right = 355.0
-offset_bottom = 64.0
+offset_left = -0.49998
+offset_top = -25.9998
+offset_right = 354.5
+offset_bottom = 38.0002
 scale = Vector2(0.75, 0.75)
 theme_override_fonts/normal_font = ExtResource("19_26lr3")
 theme_override_font_sizes/normal_font_size = 25
@@ -367,12 +369,12 @@ bbcode_enabled = true
 text = "[img]res://assets/projectiles/arrow.png[/img]  [NEW] ARROW "
 fit_content = true
 
-[node name="InfoTitle2" type="RichTextLabel" parent="GUI/Control/Upgrades/InfoContainer"]
+[node name="InfoDesc" type="RichTextLabel" parent="GUI/Control/Upgrades/InfoContainer"]
 z_index = 1
 layout_mode = 0
-offset_top = 69.1667
+offset_top = 45.0
 offset_right = 353.0
-offset_bottom = 107.167
+offset_bottom = 104.0
 scale = Vector2(0.75, 0.75)
 theme_override_fonts/normal_font = ExtResource("19_26lr3")
 theme_override_font_sizes/normal_font_size = 17
@@ -380,12 +382,12 @@ bbcode_enabled = true
 text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
 scroll_active = false
 
-[node name="InfoTitle3" type="RichTextLabel" parent="GUI/Control/Upgrades/InfoContainer"]
+[node name="InfoCost" type="RichTextLabel" parent="GUI/Control/Upgrades/InfoContainer"]
 z_index = 1
 layout_mode = 0
-offset_top = 99.0
+offset_top = 91.5002
 offset_right = 657.0
-offset_bottom = 163.0
+offset_bottom = 155.5
 scale = Vector2(0.4, 0.4)
 theme_override_fonts/normal_font = ExtResource("19_26lr3")
 theme_override_font_sizes/normal_font_size = 36
@@ -397,9 +399,10 @@ scroll_active = false
 [node name="InfoFirst" type="RichTextLabel" parent="GUI/Control/Upgrades/InfoContainer"]
 z_index = 1
 layout_mode = 0
-offset_top = 50.0
-offset_right = 167.0
-offset_bottom = 73.0
+offset_left = 0.333344
+offset_top = 24.0002
+offset_right = 167.333
+offset_bottom = 47.0002
 scale = Vector2(0.75, 0.75)
 theme_override_fonts/normal_font = ExtResource("19_26lr3")
 theme_override_font_sizes/normal_font_size = 25
@@ -410,10 +413,10 @@ fit_content = true
 [node name="InfoSecond" type="RichTextLabel" parent="GUI/Control/Upgrades/InfoContainer"]
 z_index = 1
 layout_mode = 0
-offset_left = 130.0
-offset_top = 50.0
-offset_right = 300.0
-offset_bottom = 73.0
+offset_left = 130.333
+offset_top = 24.0002
+offset_right = 300.333
+offset_bottom = 47.0002
 scale = Vector2(0.75, 0.75)
 theme_override_fonts/normal_font = ExtResource("19_26lr3")
 theme_override_font_sizes/normal_font_size = 25
@@ -427,11 +430,11 @@ layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = -8.0
-offset_top = -6.00003
+offset_top = -35.0
 offset_right = -8.0
-offset_bottom = 129.0
+offset_bottom = 100.0
 grow_horizontal = 2
-scale = Vector2(1.055, 1)
+scale = Vector2(1.055, 1.2)
 texture = ExtResource("21_6orfn")
 region_rect = Rect2(0, 0, 48, 48)
 patch_margin_left = 11
