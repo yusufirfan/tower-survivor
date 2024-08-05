@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bxp447h1pl74q"]
+[gd_scene load_steps=31 format=3 uid="uid://bxp447h1pl74q"]
 
 [ext_resource type="Texture2D" uid="uid://2ovo0ug2uav7" path="res://assets/White-Light-Transparent.png" id="1_khbcb"]
 [ext_resource type="Texture2D" uid="uid://b7mcxinvbayhw" path="res://assets/objects/Tilemap_Elevation.png" id="1_nndmh"]
@@ -14,16 +14,19 @@
 [ext_resource type="Texture2D" uid="uid://ppuu6pveq7ex" path="res://assets/deco/12.png" id="12_uuah0"]
 [ext_resource type="Texture2D" uid="uid://dadysqxcw6kej" path="res://assets/deco/05.png" id="13_tlm7u"]
 [ext_resource type="Texture2D" uid="uid://c10iv1rnfy7rx" path="res://assets/deco/04.png" id="14_hd2o2"]
+[ext_resource type="Script" path="res://scripts/GUI_Main.gd" id="16_p3yw8"]
 [ext_resource type="Script" path="res://scripts/Spawner.gd" id="17_ys281"]
 [ext_resource type="Texture2D" uid="uid://bpldvd3rmbgve" path="res://assets/ui/healthbar/healthbarUnder.png" id="18_x1usu"]
 [ext_resource type="FontFile" uid="uid://c5451snbtcult" path="res://assets/fonts/NESCyrillic.ttf" id="19_26lr3"]
 [ext_resource type="Texture2D" uid="uid://h4x870vd0fs3" path="res://assets/ui/healthbar/healthbarProgress.png" id="19_m4jxn"]
 [ext_resource type="PackedScene" uid="uid://bjhaedklfnskv" path="res://scenes/tower.tscn" id="20_7ojhf"]
-[ext_resource type="Script" path="res://scripts/TowerHealthBar.gd" id="20_qsfc1"]
-[ext_resource type="Script" path="res://GoldLabel.gd" id="20_t47ew"]
 [ext_resource type="Script" path="res://scripts/Upgrades.gd" id="21_3pp3v"]
 [ext_resource type="Texture2D" uid="uid://bgtv3n6k8ogth" path="res://assets/ui/9-slice01.png" id="21_6orfn"]
 [ext_resource type="Theme" uid="uid://cm14jfl6doc0" path="res://assets/ui/button.tres" id="22_4x3y6"]
+[ext_resource type="Texture2D" uid="uid://bpnh6lf1ejlmv" path="res://assets/ui/upgrades/gold_multiplier.png" id="23_fwbpb"]
+[ext_resource type="Texture2D" uid="uid://b3uurcc6y6031" path="res://assets/ui/upgrades/base_damage.png" id="24_0p4pd"]
+[ext_resource type="Texture2D" uid="uid://d37tbudbaecp2" path="res://assets/ui/upgrades/speed_multiplier.png" id="25_5bv0v"]
+[ext_resource type="Texture2D" uid="uid://3ffxvtvtpapc" path="res://assets/ui/upgrades/reach_multiplier.png" id="26_u8ooy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_owm0f"]
 texture = ExtResource("1_nndmh")
@@ -285,9 +288,11 @@ script = ExtResource("17_ys281")
 [node name="Timer" type="Timer" parent="Spawner"]
 autostart = true
 
-[node name="GUI" type="CanvasLayer" parent="."]
+[node name="GUI" type="CanvasLayer" parent="." node_paths=PackedStringArray("tower")]
+script = ExtResource("16_p3yw8")
+tower = NodePath("../Tower")
 
-[node name="TowerHealthBar" type="TextureProgressBar" parent="GUI" node_paths=PackedStringArray("tower")]
+[node name="TowerHealthBar" type="TextureProgressBar" parent="GUI"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -304,8 +309,19 @@ size_flags_horizontal = 4
 value = 50.0
 texture_under = ExtResource("18_x1usu")
 texture_progress = ExtResource("19_m4jxn")
-script = ExtResource("20_qsfc1")
-tower = NodePath("../../Tower")
+
+[node name="WaveCounter" type="Label" parent="GUI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -75.5
+offset_right = 75.5
+offset_bottom = 26.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("19_26lr3")
+theme_override_font_sizes/font_size = 34
+text = "WAVE: 0/18"
+horizontal_alignment = 1
 
 [node name="Control" type="Control" parent="GUI"]
 layout_mode = 3
@@ -320,17 +336,32 @@ size_flags_horizontal = 3
 layout_mode = 0
 offset_left = 20.0
 offset_top = 20.0
-offset_right = 200.0
+offset_right = 395.0
 offset_bottom = 84.0
 scale = Vector2(0.8, 0.8)
 theme_override_fonts/normal_font = ExtResource("19_26lr3")
 theme_override_font_sizes/normal_font_size = 35
 bbcode_enabled = true
-text = "[img]res://assets/ui/coin.png[/img] 0"
+text = "[img]res://assets/ui/coin.png[/img] 0
+"
 fit_content = true
 scroll_active = false
 shortcut_keys_enabled = false
-script = ExtResource("20_t47ew")
+
+[node name="GoldMultLabel" type="RichTextLabel" parent="GUI/Control"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 75.0
+offset_right = 395.0
+offset_bottom = 139.0
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/normal_font = ExtResource("19_26lr3")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = " Current multiplier: 1x"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
 
 [node name="Upgrades" type="Control" parent="GUI/Control"]
 layout_mode = 1
@@ -366,20 +397,17 @@ scale = Vector2(0.75, 0.75)
 theme_override_fonts/normal_font = ExtResource("19_26lr3")
 theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
-text = "[img]res://assets/projectiles/arrow.png[/img]  [NEW] ARROW "
 fit_content = true
 
 [node name="InfoDesc" type="RichTextLabel" parent="GUI/Control/Upgrades/InfoContainer"]
 z_index = 1
 layout_mode = 0
-offset_top = 45.0
-offset_right = 353.0
-offset_bottom = 104.0
-scale = Vector2(0.75, 0.75)
+offset_top = 44.0
+offset_right = 266.0
+offset_bottom = 90.0
 theme_override_fonts/normal_font = ExtResource("19_26lr3")
-theme_override_font_sizes/normal_font_size = 17
+theme_override_font_sizes/normal_font_size = 15
 bbcode_enabled = true
-text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
 scroll_active = false
 
 [node name="InfoCost" type="RichTextLabel" parent="GUI/Control/Upgrades/InfoContainer"]
@@ -392,7 +420,6 @@ scale = Vector2(0.4, 0.4)
 theme_override_fonts/normal_font = ExtResource("19_26lr3")
 theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
-text = "[img]res://assets/ui/coin.png[/img] COST: 100 GOLD"
 fit_content = true
 scroll_active = false
 
@@ -407,7 +434,6 @@ scale = Vector2(0.75, 0.75)
 theme_override_fonts/normal_font = ExtResource("19_26lr3")
 theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
-text = "DAMAGE: 100"
 fit_content = true
 
 [node name="InfoSecond" type="RichTextLabel" parent="GUI/Control/Upgrades/InfoContainer"]
@@ -421,7 +447,6 @@ scale = Vector2(0.75, 0.75)
 theme_override_fonts/normal_font = ExtResource("19_26lr3")
 theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
-text = "DAMAGE: 100"
 fit_content = true
 
 [node name="InfoBackground" type="NinePatchRect" parent="GUI/Control/Upgrades/InfoContainer"]
@@ -465,21 +490,61 @@ theme_override_constants/separation = 8
 layout_mode = 2
 theme = ExtResource("22_4x3y6")
 
+[node name="TextureRect" type="TextureRect" parent="GUI/Control/Upgrades/VBoxContainer/HBoxContainer1/Button"]
+layout_mode = 0
+offset_left = -0.578704
+offset_right = 63.4213
+offset_bottom = 64.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("23_fwbpb")
+
 [node name="Button2" type="Button" parent="GUI/Control/Upgrades/VBoxContainer/HBoxContainer1"]
 layout_mode = 2
 theme = ExtResource("22_4x3y6")
+
+[node name="TextureRect" type="TextureRect" parent="GUI/Control/Upgrades/VBoxContainer/HBoxContainer1/Button2"]
+layout_mode = 0
+offset_left = -0.578704
+offset_right = 63.4213
+offset_bottom = 64.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("24_0p4pd")
 
 [node name="Button3" type="Button" parent="GUI/Control/Upgrades/VBoxContainer/HBoxContainer1"]
 layout_mode = 2
 theme = ExtResource("22_4x3y6")
 
+[node name="TextureRect" type="TextureRect" parent="GUI/Control/Upgrades/VBoxContainer/HBoxContainer1/Button3"]
+layout_mode = 0
+offset_left = -0.578704
+offset_right = 63.4213
+offset_bottom = 64.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("25_5bv0v")
+
 [node name="Button4" type="Button" parent="GUI/Control/Upgrades/VBoxContainer/HBoxContainer1"]
 layout_mode = 2
 theme = ExtResource("22_4x3y6")
 
+[node name="TextureRect" type="TextureRect" parent="GUI/Control/Upgrades/VBoxContainer/HBoxContainer1/Button4"]
+layout_mode = 0
+offset_left = -0.578704
+offset_right = 63.4213
+offset_bottom = 64.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("26_u8ooy")
+
 [node name="Button5" type="Button" parent="GUI/Control/Upgrades/VBoxContainer/HBoxContainer1"]
 layout_mode = 2
 theme = ExtResource("22_4x3y6")
+
+[node name="TextureRect" type="TextureRect" parent="GUI/Control/Upgrades/VBoxContainer/HBoxContainer1/Button5"]
+layout_mode = 0
+offset_left = -0.578704
+offset_right = 63.4213
+offset_bottom = 64.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("23_fwbpb")
 
 [node name="Tower" parent="." instance=ExtResource("20_7ojhf")]
 position = Vector2(650, 343)

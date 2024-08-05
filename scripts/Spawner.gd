@@ -24,7 +24,6 @@ func start_wave():
 func _on_timer_timeout():
 	if enemy_count < current_enemy_count:
 		get_parent().get_node("Tower").send_enemy_count(current_enemy_count)
-		get_parent().get_node("Tower").send_current_wave(current_wave)
 		var enemy = enemy_scene.instantiate()
 		
 		var random_index = randi() % state.spawn_points.size()

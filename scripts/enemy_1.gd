@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Enemy
 
 var NAME = "enemy_1"
 

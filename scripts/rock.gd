@@ -1,6 +1,6 @@
 extends Area2D
 
-var NAME = "arrow"
+var NAME = "rock"
 
 var DAMAGE = GlobalState.weapons[NAME]['damage']
 var SPEED = GlobalState.weapons[NAME]['speed']

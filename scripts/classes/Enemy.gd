@@ -1,5 +1,5 @@
 class_name Enemy
-extends Node2D
+extends CharacterBody2D
 
 func add_gold(amount):
 	GlobalState.add_gold(amount)

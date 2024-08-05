@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://qhpllqp50pff" path="res://assets/projectiles/arrow.png" id="1_ioq7w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf733"]
-size = Vector2(62, 12)
+size = Vector2(45, 49)
 
 [node name="Arrow" type="Area2D"]
 collision_layer = 0
