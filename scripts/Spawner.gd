@@ -2,7 +2,7 @@ extends Node2D
 
 var enemy_scene
 var enemy_count = 0
-var current_wave = 1
+var current_wave = 10
 var current_wave_data
 var current_enemy_count = 0
 
@@ -19,7 +19,7 @@ func start_wave():
 		current_enemy_count = current_wave_data["count"]
 		enemy_count = 0
 	else:
-		print("No more waves available!")
+		GlobalState.game_beat()
 	
 func _on_timer_timeout():
 	if enemy_count < current_enemy_count:

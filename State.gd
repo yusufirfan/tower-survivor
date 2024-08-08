@@ -7,7 +7,7 @@ signal gold_multiplier_changed
 #Common Variables
 var tower
 var tower_health = 1000
-var gold = 1000
+var gold = 10000
 
 #Upgrade Variables
 var gold_multiplier = 1
@@ -64,6 +64,29 @@ func check_gold(amount):
 
 func increase_reach(amount: float):
 	reach += amount
+
+func game_beat():
+	var panel = get_node("/root/Main/GUI/Panel")
+	var label = get_node("/root/Main/GUI/Panel/Label")
+	var duration = 0.5
+	var step = 0.05
+	
+	panel.show()
+	for i in range(0, int(duration/step)):
+		var t = i * step / duration
+		var ease_value = t * t * (3.0 - 2.0 * t)  # Ease-in-out hesaplaması
+		panel.modulate.a = ease_value
+		await get_tree().create_timer(step).timeout
+	
+	await get_tree().create_timer(0.5).timeout
+	
+	label.show()
+	for i in range(0, int(duration/step)):
+		var t = i * step / duration
+		var ease_value = t * t * (3.0 - 2.0 * t)  # Ease-in-out hesaplaması
+		label.modulate.a = ease_value
+		await get_tree().create_timer(step).timeout
+
 
 ### Weapons and Functions ###
 var weapons = {
