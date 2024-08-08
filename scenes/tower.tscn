@@ -17,22 +17,23 @@ script = ExtResource("1_hks4t")
 
 [node name="Tower" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(0, 27)
+position = Vector2(1, 23)
 texture = ExtResource("1_x4rk4")
 offset = Vector2(0, -35)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 2
+position = Vector2(1, 15)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("CapsuleShape2D_3dfxp")
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(1, 0)
+position = Vector2(1, -1)
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 23)
+position = Vector2(0, 33)
 scale = Vector2(1, 0.7)
 shape = SubResource("CircleShape2D_3huh4")
 
