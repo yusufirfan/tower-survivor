@@ -20,3 +20,4 @@ I used the Godot Engine because it's beginner friendly and easy to learn.
 - [makertech](https://www.youtube.com/watch?v=UEJcUnq2dfU) for the TextureProgressBar tutorial
 - [Brackeys](https://www.youtube.com/@Brackeys) for Godot basics
 - [DevWorm](https://www.youtube.com/@dev-worm) for Godot tutorials
+- I'm really sorry but I can't find where I got my UI sprites, if you know contact me
