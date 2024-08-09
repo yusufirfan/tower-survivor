@@ -16,7 +16,6 @@ var enemy_count
 var dead_enemy = 0
 
 signal healthChanged
-signal wave_changed
 
 func _draw():
 	var collision_shape = $Area2D/CollisionShape2D
@@ -96,7 +95,6 @@ func pop_list():
 		dead_enemy = 0
 		# Call new_wave function from the Spawner node
 		await get_tree().create_timer(0.5).timeout
-		wave_changed.emit()
 		get_parent().get_node("Spawner").new_wave()
 
 #Gets enemy_count data from Spawner.gd

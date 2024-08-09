@@ -3,11 +3,13 @@ class_name State extends Node2D
 #Signals
 signal gold_changed
 signal gold_multiplier_changed
+signal wave_changed
 
 #Common Variables
 var tower
 var tower_health = 1000
-var gold = 10000
+var gold = 100
+var current_wave = 1
 
 #Upgrade Variables
 var gold_multiplier = 1
