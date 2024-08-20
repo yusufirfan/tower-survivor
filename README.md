@@ -1,6 +1,6 @@
 # Tower Survivor
 
-It's a side project while I study for my university exams. I saw the concept on Cakez's YouTube channel. He was trying to make a Vampire Survivor game where the player is a tower. I thought it was a good idea.
+It's a side project while I study for my university entrance exam. I saw the concept on Cakez's YouTube channel. He was trying to make a Vampire Survivor game where the player is a tower. I thought it was a good idea.
 
 I used the Godot Engine because it's beginner friendly and easy to learn.
 
