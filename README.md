@@ -4,6 +4,8 @@ It's a side project while I study for my university exams. I saw the concept on 
 
 I used the Godot Engine because it's beginner friendly and easy to learn.
 
+For preview you can visit my [Itch.io](https://kurakigame.itch.io/tower-survivor) page. 
+
 ## Idea
 
 - Thanks to [Cakez](https://www.youtube.com/watch?v=2H9KERSYS4E) for the tower survivor concept idea.
@@ -22,3 +24,6 @@ I used the Godot Engine because it's beginner friendly and easy to learn.
 - [Brackeys](https://www.youtube.com/@Brackeys) for Godot basics
 - [DevWorm](https://www.youtube.com/@dev-worm) for Godot tutorials
 - I'm really sorry but I can't find where I got my UI sprites, if you know contact me
+
+## Note
+Please check people who did the assets and their licenses.
