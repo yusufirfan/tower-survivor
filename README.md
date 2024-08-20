@@ -16,6 +16,7 @@ I used the Godot Engine because it's beginner friendly and easy to learn.
 
 ## Special Thanks
 
+- my father for supporting me
 - [Godot Engine](https://godotengine.org/)
 - [makertech](https://www.youtube.com/watch?v=UEJcUnq2dfU) for the TextureProgressBar tutorial
 - [Brackeys](https://www.youtube.com/@Brackeys) for Godot basics
