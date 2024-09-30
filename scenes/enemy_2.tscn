@@ -1,105 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://cjdi6bs1tjt4"]
+[gd_scene load_steps=12 format=3 uid="uid://cjdi6bs1tjt4"]
 
 [ext_resource type="Texture2D" uid="uid://bfyd2xijgjtmg" path="res://assets/enemies/Warrior_Blue.png" id="1_ktmgv"]
 [ext_resource type="Script" path="res://scripts/enemy_2.gd" id="1_ph6yn"]
 [ext_resource type="FontFile" uid="uid://c5451snbtcult" path="res://assets/fonts/NESCyrillic.ttf" id="2_xld0d"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j2483"]
-atlas = ExtResource("1_ktmgv")
-region = Rect2(0, 384, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sqvga"]
-atlas = ExtResource("1_ktmgv")
-region = Rect2(192, 384, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yl0ka"]
-atlas = ExtResource("1_ktmgv")
-region = Rect2(384, 384, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ycea3"]
-atlas = ExtResource("1_ktmgv")
-region = Rect2(576, 384, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_25rv1"]
-atlas = ExtResource("1_ktmgv")
-region = Rect2(768, 384, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8pisx"]
-atlas = ExtResource("1_ktmgv")
-region = Rect2(960, 384, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ybof5"]
-atlas = ExtResource("1_ktmgv")
-region = Rect2(0, 192, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jw3b7"]
-atlas = ExtResource("1_ktmgv")
-region = Rect2(192, 192, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w3yny"]
-atlas = ExtResource("1_ktmgv")
-region = Rect2(384, 192, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ed4tb"]
-atlas = ExtResource("1_ktmgv")
-region = Rect2(576, 192, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gqc03"]
-atlas = ExtResource("1_ktmgv")
-region = Rect2(768, 192, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4gpd5"]
-atlas = ExtResource("1_ktmgv")
-region = Rect2(960, 192, 192, 192)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_r281r"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j2483")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sqvga")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yl0ka")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ycea3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_25rv1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8pisx")
-}],
-"loop": true,
-"name": &"attack",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ybof5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jw3b7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w3yny")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ed4tb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gqc03")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4gpd5")
-}],
-"loop": true,
-"name": &"run",
-"speed": 5.0
-}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_418c8"]
 radius = 5.09902
@@ -120,20 +23,87 @@ expand_margin_bottom = 1.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oukdk"]
 bg_color = Color(0.364706, 1, 0.0588235, 1)
 
+[sub_resource type="Animation" id="Animation_tcgql"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_mea5a"]
+resource_name = "attack"
+length = 0.70001
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [18, 19, 20, 21, 22, 23]
+}
+
+[sub_resource type="Animation" id="Animation_3xse1"]
+resource_name = "death"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_h688i"]
+resource_name = "run"
+length = 0.60001
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h14ip"]
+_data = {
+"RESET": SubResource("Animation_tcgql"),
+"attack": SubResource("Animation_mea5a"),
+"death": SubResource("Animation_3xse1"),
+"run": SubResource("Animation_h688i")
+}
+
 [node name="Enemy2" type="CharacterBody2D"]
 z_index = 2
 y_sort_enabled = true
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_ph6yn")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, -13)
-sprite_frames = SubResource("SpriteFrames_r281r")
-animation = &"run"
-autoplay = "run"
-frame = 2
-frame_progress = 0.37
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_418c8")
@@ -168,5 +138,15 @@ horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
 
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ktmgv")
+hframes = 6
+vframes = 8
+frame = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h14ip")
+}
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

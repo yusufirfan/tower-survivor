@@ -15,7 +15,7 @@ var current_wave = 1
 var gold_multiplier = 1
 var base_damage = 0
 var speed_multiplier = 1
-var reach = 1200
+var reach = 1250
 var current_weapon
 var second_weapon
 
